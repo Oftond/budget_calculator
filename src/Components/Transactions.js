@@ -66,21 +66,6 @@ const Transactions = () => {
             </div>
             )}
         </div>
-
-        <div>
-            <div>
-                <span>Всего доходов:</span>
-                <span>
-                    {transactions.filter(t => t.type === 'Доход').reduce((sum, t) => sum + t.amount, 0)}
-                </span>
-            </div>
-            <div>
-                <span>Всего расходов:</span>
-                <span>
-                    {transactions.filter(t => t.type === 'Расход').reduce((sum, t) => sum + t.amount, 0)}
-                </span>
-            </div>
-        </div>
         </div>
     );
 }
