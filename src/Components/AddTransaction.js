@@ -35,10 +35,10 @@ const AddTransaction = ({ onAdd }) => {
         <div>
             <div>
                 <h2>Добавить операцию</h2>
-                <button onClick={() => navigate('/transactions')} className="back-button">Назад</button>
+                <button onClick={() => navigate('/transactions')}>Назад</button>
             </div>
 
-            <form onSubmit={handleSubmit} className="transaction-form">
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label>Тип операции</label>
                     <select value={data.type} onChange={handleInputChange}>
