@@ -25,29 +25,25 @@ const Transactions = () => {
     });
 
     return (
-        <div className="transactions-page">
-        <div className="balance-section">
+        <div>
+        <div>
             <h2>Текущий баланс: {balance}</h2>
         </div>
 
         <div>
             <div>
             <label>Фильтр по типу:</label>
-            <select 
-                value={filter} 
-                onChange={(e) => setFilter(e.target.value)}
-                className="filter-select"
-            >
+            <select value={filter} onChange={(e) => setFilter(e.target.value)}>
                 <option value="Все">Все транзакции</option>
                 <option value="Доход">Доходы</option>
                 <option value="Расход">Расходы</option>
             </select>
             </div>
             
-            <Link to="/AddTransaction" className="add-button">Добавить транзакцию</Link>
+            <Link to="/AddTransaction">Добавить транзакцию</Link>
         </div>
 
-        <div className="transactions-list">
+        <div>
             <h3>Список транзакций</h3>
             {filterTransactions.length === 0 ? (
             <p>Нет транзакций для отображения</p>
