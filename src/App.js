@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
+import { TRANSACTIONS } from "./data/transactions";
+import AddTransaction from "./Components/AddTransaction";
+import Transactions from "./Components/Transactions";
 import './App.css';
 
 function App() {
+  const [transactions, setTransactions] = useState([...TRANSACTIONS]);
+
+  const handleAdd = (newTr) => {
+    setTransactions((prev) => [...prev, newTr]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <div style={{padding: "20 px"}}>
+            <p>Добро пожаловать в самый крутой калькулятор бюджеты в мире!</p>
+            <Link to={"/transactions"}>Посмотреть транзакции</Link>
+          </div>
+        } />
+        <Route path="/Transactions" element={<Transactions transactions={transactions}/>} />
+        <Route path="/AddTransaction" element={<AddTransaction onAdd={handleAdd}/>} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
